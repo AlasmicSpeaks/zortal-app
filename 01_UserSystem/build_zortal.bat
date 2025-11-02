@@ -395,6 +395,116 @@ echo ^</html^>
 echo # Content Vault > "%folder%\README.md"
 echo ## Purpose: Archive meaningful content for legacy and retrieval. > "%folder%\index.md"
 
+:: === 04_EconomySystem ===
+set "base=C:\Users\alasm\Desktop\ZorTal Project Folder\ZorTal\04_EconomySystem"
+mkdir "%base%\ZorCoinEngine"
+mkdir "%base%\InfluenceMining"
+mkdir "%base%\TransactionLedger"
+mkdir "%base%\Sorology"
+mkdir "%base%\EconomyDashboard"
+
+:: === ZorCoinEngine ===
+set "folder=%base%\ZorCoinEngine"
+(
+echo exports.mintZorCoin = (user, action) => {
+echo   // Mint ZorCoin based on glyph score and aura
+echo };
+) > "%folder%\zorCoinMint.js"
+
+(
+echo ^<html^>
+echo ^<head^>^<title^>ZorCoin Wallet^</title^>^</head^>
+echo ^<body^>
+echo ^<div^>Your ZorCoin balance: 0.00^</div^>
+echo ^</body^>
+echo ^</html^>
+) > "%folder%\zorCoinWallet.html"
+
+echo # ZorCoin Engine > "%folder%\README.md"
+echo ## Purpose: Mint and track ZorCoin based on user actions and resonance. > "%folder%\index.md"
+
+:: === InfluenceMining ===
+set "folder=%base%\InfluenceMining"
+(
+echo exports.mineInfluence = (user) => {
+echo   // Calculate influence score from engagement and aura
+echo };
+) > "%folder%\influenceEngine.js"
+
+(
+echo ^<html^>
+echo ^<head^>^<title^>Influence Mining^</title^>^</head^>
+echo ^<body^>
+echo ^<div^>Your influence score: 0.00^</div^>
+echo ^</body^>
+echo ^</html^>
+) > "%folder%\influenceUI.html"
+
+echo # Influence Mining > "%folder%\README.md"
+echo ## Purpose: Convert emotional engagement into influence and ZorCoin. > "%folder%\index.md"
+
+:: === TransactionLedger ===
+set "folder=%base%\TransactionLedger"
+(
+echo const ledger = [];
+echo exports.recordTransaction = (from, to, amount, reason) => {
+echo   ledger.push({ from, to, amount, reason, timestamp: Date.now() });
+echo };
+) > "%folder%\ledgerEngine.js"
+
+(
+echo ^<html^>
+echo ^<head^>^<title^>Transaction Ledger^</title^>^</head^>
+echo ^<body^>
+echo ^<h2^>ZorCoin Transactions^</h2^>
+echo ^</body^>
+echo ^</html^>
+) > "%folder%\ledgerUI.html"
+
+echo # Transaction Ledger > "%folder%\README.md"
+echo ## Purpose: Record and display all ZorCoin transactions. > "%folder%\index.md"
+
+:: === Sorology ===
+set "folder=%base%\Sorology"
+(
+echo exports.analyzeSorology = (user) => {
+echo   // Interpret emotional patterns and spending behavior
+echo };
+) > "%folder%\sorologyEngine.js"
+
+(
+echo ^<html^>
+echo ^<head^>^<title^>Sorology Chart^</title^>^</head^>
+echo ^<body^>
+echo ^<div^>Your emotional commerce pattern: TBD^</div^>
+echo ^</body^>
+echo ^</html^>
+) > "%folder%\sorologyUI.html"
+
+echo # Sorology Engine > "%folder%\README.md"
+echo ## Purpose: Analyze emotional spending patterns and resonance loops. > "%folder%\index.md"
+
+:: === EconomyDashboard ===
+set "folder=%base%\EconomyDashboard"
+(
+echo exports.getEconomyStats = () => {
+echo   // Return total ZorCoin in circulation, top earners, etc.
+echo };
+) > "%folder%\economyStats.js"
+
+(
+echo ^<html^>
+echo ^<head^>^<title^>Economy Dashboard^</title^>^</head^>
+echo ^<body^>
+echo ^<h2^>ZorTal Economic Overview^</h2^>
+echo ^</body^>
+echo ^</html^>
+) > "%folder%\economyDashboard.html"
+
+echo # Economy Dashboard > "%folder%\README.md"
+echo ## Purpose: Visualize ZorTal’s economic health and ZorCoin flow. > "%folder%\index.md"
+
+
 
 echo.
 echo ✅ ZorTal UserSystem scaffolded successfully!
