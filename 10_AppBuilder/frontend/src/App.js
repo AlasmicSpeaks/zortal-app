@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import HomePage from './HomePage';
-import Dashboard from './Dashboard';
+import WelcomePage from './WelcomePage';
 import SignupForm from './SignupForm';
+import Dashboard from './Dashboard';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [aura, setAura] = useState('Radiant');
-  const [showSignup, setShowSignup] = useState(true); // Toggle between signup and homepage
+  const [showSignup, setShowSignup] = useState(false);
 
   return (
     <div>
@@ -14,14 +14,11 @@ const App = () => {
         <Dashboard aura={aura} />
       ) : showSignup ? (
         <SignupForm
-          onSignupSuccess={() => {
-            setIsLoggedIn(true);
-            setShowSignup(false);
-          }}
+          onSignupSuccess={() => setIsLoggedIn(true)}
           setAura={setAura}
         />
       ) : (
-        <HomePage onLogin={() => setIsLoggedIn(true)} setAura={setAura} />
+        <WelcomePage onJoin={() => setShowSignup(true)} />
       )}
     </div>
   );
