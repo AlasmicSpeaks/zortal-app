@@ -15,7 +15,9 @@ const WelcomePage = ({ onJoin }) => {
 const styles = {
   container: {
     height: '100vh',
-    background: 'linear-gradient(to right, #1e1e2f, #3f3f5f)',
+    backgroundImage: 'url("/zortal-bg.png")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
     color: '#fff',
     display: 'flex',
     flexDirection: 'column',
