@@ -21,6 +21,7 @@ const contentRoutes = require('../../03_ContentSystem/PostModeration/contentRout
 const questRoutes = require('../../06_QuestSystem/QuestManager/questRoutes');
 const adminRoutes = require('../../07_AdminSystem/AdminControlPanel/adminRoutes');
 const authRoutes = require('../../10_AppBuilder/AuthModule/authRoutes');
+const zorCoinRoutes = require('../../10_AppBuilder/ZorCoinEngine/zorCoinRoutes');
 
 // Mount routes
 app.use('/api/users', userRoutes);
@@ -29,6 +30,7 @@ app.use('/api/content', contentRoutes);
 app.use('/api/quests', questRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/zorcoin', zorCoinRoutes);
 
 // Fallback route
 app.get('*', (req, res) => {
