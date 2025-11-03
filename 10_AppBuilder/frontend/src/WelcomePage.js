@@ -21,7 +21,9 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: 'sans-serif'
+    fontFamily: 'Segoe UI, sans-serif',
+    textAlign: 'center',
+    padding: '2rem'
   },
   logo: {
     fontSize: '4rem',
@@ -34,13 +36,16 @@ const styles = {
     fontStyle: 'italic'
   },
   button: {
-    padding: '1rem 2rem',
+    padding: '0.8rem 1.6rem',
     fontSize: '1rem',
     backgroundColor: '#ff6f61',
     border: 'none',
     borderRadius: '8px',
     cursor: 'pointer',
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'normal',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+    transition: 'transform 0.2s ease'
   }
 };
 

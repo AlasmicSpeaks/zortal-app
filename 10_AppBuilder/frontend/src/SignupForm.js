@@ -5,8 +5,7 @@ const SignupForm = ({ onSignupSuccess, setAura }) => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
-    aura: ''
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -18,23 +17,83 @@ const SignupForm = ({ onSignupSuccess, setAura }) => {
     try {
       const res = await axios.post('http://localhost:3000/api/auth/signup', formData);
       alert(res.data.message);
-      setAura(formData.aura);        // Pass aura to App
-      onSignupSuccess();             // Trigger login flow
+      onSignupSuccess(); // triggers dashboard
     } catch (err) {
       alert(err.response?.data?.message || 'Signup failed');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Join ZorTal</h2>
-      <input name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
-      <input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-      <input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-      <input name="aura" placeholder="Aura (e.g. Radiant)" value={formData.aura} onChange={handleChange} required />
-      <button type="submit">Sign Up</button>
+    <form onSubmit={handleSubmit} style={styles.form}>
+      <h2 style={styles.heading}>Create Your ZorTal Account</h2>
+      <input
+        name="username"
+        placeholder="Username"
+        value={formData.username}
+        onChange={handleChange}
+        required
+        style={styles.input}
+      />
+      <input
+        name="email"
+        type="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        style={styles.input}
+      />
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+        required
+        style={styles.input}
+      />
+      <button type="submit" style={styles.button}>Sign Up</button>
     </form>
   );
+};
+
+const styles = {
+  form: {
+    background: 'linear-gradient(to right, #1e1e2f, #3f3f5f)',
+    color: '#fff',
+    padding: '2rem',
+    borderRadius: '12px',
+    maxWidth: '400px',
+    margin: '5vh auto',
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: 'Segoe UI, sans-serif',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+  },
+  heading: {
+    fontSize: '1.8rem',
+    marginBottom: '1.5rem',
+    textAlign: 'center'
+  },
+  input: {
+    padding: '0.8rem',
+    marginBottom: '1rem',
+    borderRadius: '6px',
+    border: 'none',
+    fontSize: '1rem'
+  },
+  button: {
+    padding: '0.8rem',
+    fontSize: '1rem',
+    backgroundColor: '#ff6f61',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    color: '#fff',
+    fontWeight: 'normal',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+    transition: 'transform 0.2s ease'
+  }
 };
 
 export default SignupForm;
