@@ -20,6 +20,7 @@ const brandRoutes = require('../../02_BrandSystem/BrandDashboard/brandRoutes');
 const contentRoutes = require('../../03_ContentSystem/PostModeration/contentRoutes');
 const questRoutes = require('../../06_QuestSystem/QuestManager/questRoutes');
 const adminRoutes = require('../../07_AdminSystem/AdminControlPanel/adminRoutes');
+const authRoutes = require('../../10_AppBuilder/AuthModule/authRoutes');
 
 // Mount routes
 app.use('/api/users', userRoutes);
@@ -27,6 +28,7 @@ app.use('/api/brands', brandRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/quests', questRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/auth', authRoutes);
 
 // Fallback route
 app.get('*', (req, res) => {
