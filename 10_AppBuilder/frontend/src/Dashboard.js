@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../frontend/src/UIComponentLibrary/Card';
-import Modal from '../frontend/src/UIComponentLibrary/Modal';
+import Card from './UIComponentLibrary/Card';
+import PostFeed from './PostFeed';
 
 const Dashboard = ({ aura }) => {
   const quests = [
@@ -15,6 +15,7 @@ const Dashboard = ({ aura }) => {
       {quests.map((q, i) => (
         <Card key={i} title={q.title} content={q.content} aura={q.aura} />
       ))}
+      <PostFeed />
     </div>
   );
 };

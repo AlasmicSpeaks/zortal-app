@@ -1,41 +1,32 @@
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-
-// Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../../public')));
+app.use(cors());
 
-// MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/zortal', {
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() => console.log('🧬 Connected to MongoDB'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
-
-// Routes (modular imports)
-const userRoutes = require('../../01_UserSystem/UserManagement/userRoutes');
-const brandRoutes = require('../../02_BrandSystem/BrandDashboard/brandRoutes');
-const contentRoutes = require('../../03_ContentSystem/PostModeration/contentRoutes');
-const questRoutes = require('../../06_QuestSystem/QuestManager/questRoutes');
-const adminRoutes = require('../../07_AdminSystem/AdminControlPanel/adminRoutes');
-const authRoutes = require('../../10_AppBuilder/AuthModule/authRoutes');
-const zorCoinRoutes = require('../../10_AppBuilder/ZorCoinEngine/zorCoinRoutes');
-
-// Mount routes
-app.use('/api/users', userRoutes);
-app.use('/api/brands', brandRoutes);
-app.use('/api/content', contentRoutes);
-app.use('/api/quests', questRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/zorcoin', zorCoinRoutes);
-
-// Fallback route
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
+}).then(() => {
+  console.log('🧬 Connected to MongoDB');
+}).catch((err) => {
+  console.error('MongoDB connection error:', err);
 });
+
+// Routes
+const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+const zorcoinRoutes = require('./routes/zorcoinRoutes');
+const postRoutes = require('./routes/postRoutes');
+
+app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/zorcoin', zorcoinRoutes);
+app.use('/api/posts', postRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;

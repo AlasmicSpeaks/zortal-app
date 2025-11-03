@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import Button from '../UIComponentLibrary/Button';
-import Card from '../UIComponentLibrary/Card';
+import Button from '../frontend/src/UIComponentLibrary/Button';
+import Card from '../frontend/src/UIComponentLibrary/Card';
 
 test('renders Button with label', () => {
   render(<Button label="Click Me" onClick={() => {}} />);

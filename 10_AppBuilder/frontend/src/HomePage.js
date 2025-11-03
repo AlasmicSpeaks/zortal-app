@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../frontend/src/UIComponentLibrary/Button';
-import StyleGlyph from '../frontend/src/UIComponentLibrary/StyleGlyph';
+import Button from './UIComponentLibrary/Button';
+import StyleGlyph from './UIComponentLibrary/StyleGlyph';
 
 const HomePage = ({ onLogin, setAura }) => {
   const handleAuraSelect = (selectedAura) => {
