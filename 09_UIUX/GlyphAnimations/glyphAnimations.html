@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Glyph Animations</title>
+  <style>
+    .pulse-glow { animation: pulse 2s infinite; }
+    .float-fade { animation: float 3s ease-in-out infinite; }
+    .zoom-flare { animation: zoom 1.5s ease-in-out infinite; }
+    .ripple-soft { animation: ripple 2.5s ease-in-out infinite; }
+    .twist-glimmer { animation: twist 2s linear infinite; }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 5px #fff; }
+      50% { box-shadow: 0 0 20px #f0f; }
+      100% { box-shadow: 0 0 5px #fff; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-10px); opacity: 0.7; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+
+    @keyframes twist {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h2>Glyph Animations</h2>
+  <div class="pulse-glow">🌟 Radiant</div>
+  <div class="float-fade">🌙 Dreamy</div>
+  <div class="zoom-flare">⚡ Bold</div>
+  <div class="ripple-soft">🌸 Warm</div>
+  <div class="twist-glimmer">🔮 Mystic</div>
+</body>
+</html>
