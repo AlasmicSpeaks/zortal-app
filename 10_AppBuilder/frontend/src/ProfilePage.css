@@ -1,0 +1,21 @@
+.profile-container {
+  padding: 2rem;
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.profile-post {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profile-post img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+}
