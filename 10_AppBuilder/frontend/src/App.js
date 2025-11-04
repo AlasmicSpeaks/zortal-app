@@ -6,6 +6,8 @@ import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
 import HomePage from './HomePage';
 import PostFeed from './PostFeed'; // ✅ Updated feed component
+import ProfilePage from './ProfilePage';
+import CreatePost from './CreatePost';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/feed" element={<PostFeed />} /> {/* ✅ Feed route */}
+        <Route path="/create-post" element={<CreatePost userId="YOUR_USER_ID" />} />
+        <Route path="/profile/:userId" element={<ProfilePage userId="YOUR_USER_ID" />} />
       </Routes>
     </Router>
   );
