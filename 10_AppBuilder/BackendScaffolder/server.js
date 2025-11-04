@@ -23,13 +23,15 @@ const authRoutes = require('./routes/authRoutes');
 const zorcoinRoutes = require('./routes/zorcoinRoutes');
 const postRoutes = require('./routes/postRoutes');
 const activateAuraRoute = require('./routes/activateAura');
+const passwordRecoveryRoute = require('./routes/passwordRecovery');
 
 // 🔀 Route Wiring
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/zorcoin', zorcoinRoutes);
 app.use('/api/posts', postRoutes);
-app.use('/api', activateAuraRoute); // ✅ Aura activation route
+app.use('/api', activateAuraRoute);       // ✅ Aura activation
+app.use('/api', passwordRecoveryRoute);   // ✅ Password recovery
 
 // 🚀 Start Server
 const PORT = process.env.PORT || 3000;
