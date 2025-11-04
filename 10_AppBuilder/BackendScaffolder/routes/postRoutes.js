@@ -1,26 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../models/postModel');
+const {
+  createPost,
+  getFeed,
+  addReaction,
+  addComment
+} = require('../controllers/postController');
 
-// Create a post
-router.post('/create', async (req, res) => {
-  try {
-    const post = new Post(req.body);
-    await post.save();
-    res.status(201).json(post);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+// 📝 Create a new post
+router.post('/create-post', createPost);
 
-// Get all posts
-router.get('/', async (req, res) => {
-  try {
-    const posts = await Post.find().sort({ createdAt: -1 });
-    res.json(posts);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// 📜 Get all posts (feed)
+router.get('/feed', getFeed);
+
+// ❤️ React to a post
+router.post('/react/:postId', addReaction);
+
+// 💬 Comment on a post
+router.post('/comment/:postId', addComment);
 
 module.exports = router;
