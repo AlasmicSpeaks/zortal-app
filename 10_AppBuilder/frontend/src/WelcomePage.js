@@ -1,11 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const WelcomePage = ({ onJoin }) => {
+const WelcomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div style={styles.container}>
       <h1 style={styles.logo}>ZorTal</h1>
       <p style={styles.tagline}>The Trending Portal</p>
-      <button style={styles.button} onClick={onJoin}>
+      <button style={styles.button} onClick={() => navigate('/signup')}>
         Join Now
       </button>
     </div>
